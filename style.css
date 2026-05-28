@@ -1,0 +1,992 @@
+:root {
+  --blue: #4fc3f7;
+  --LimeGreen: #aed581;
+  --Orange: #ffb74d;
+  --background: #e4eff8;
+  --Text: #333333;
+  --electricBlue: #42a5f5;
+  --NeonGreen: #66bb6a;
+  --Charcol: #212121;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: gilroy;
+}
+/* header .strawhat {
+  position: absolute;
+  display: inline-block;
+  z-index: 10;
+  width: 20vw;
+  min-width: 15rem;
+  height: 400px;
+  background-color: red;
+  right: 110px;
+} */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  color: #333333;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background);
+  background-image: radial-gradient(rgba(51, 51, 51, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+/* header */
+header {
+  position: relative;
+  font-family: "Comic Neue", cursive;
+  width: 100%;
+  padding: 5vh 7vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 5vh;
+}
+header .one {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 5vh;
+}
+header .one h1 {
+  font-family: "Comic Neue", cursive;
+  font-size: clamp(3rem, 5vw, 5rem);
+
+  margin-bottom: 20px;
+}
+header .two {
+  border-radius: 5%;
+  /* height: 20rem; */
+  transform: translateX(700px);
+
+  width: 20vw;
+  min-width: 15rem;
+  overflow: hidden;
+  transition: all 0.2s linear;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+header .two:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+header .two img {
+  /* height: 20rem; */
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.2s linear;
+}
+header .two img:hover {
+  transform: scale(1.2);
+}
+header .one p {
+  margin: 2.5vw 0;
+  font-family: "Comic Neue", cursive;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+/* This is for the day and night toggle */
+.toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180px;
+  height: 50px;
+  background-color: var(--Charcol);
+  color: white;
+  padding: 3% 5%;
+  border-radius: 10px;
+  /* background-color: red; */
+}
+header .one .toggle p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: "Courier New", Courier, monospace;
+  /* background-color: orange; */
+}
+/* From Uiverse.io by Galahhad */
+/* switch settings 👇 */
+
+.ui-switch {
+  /* switch */
+  --switch-bg: rgb(135, 150, 165);
+  --switch-width: 48px;
+  --switch-height: 20px;
+  /* circle */
+  --circle-diameter: 32px;
+  --circle-bg: rgb(0, 56, 146);
+  --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
+}
+
+.ui-switch input {
+  display: none;
+}
+
+.slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: var(--switch-width);
+  height: var(--switch-height);
+  background: var(--switch-bg);
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+}
+
+.slider .circle {
+  top: calc(var(--circle-inset) * -1);
+  left: 0;
+  width: var(--circle-diameter);
+  height: var(--circle-diameter);
+  position: absolute;
+  background: var(--circle-bg);
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTkuMzA1IDEuNjY3VjMuNzVoMS4zODlWMS42NjdoLTEuMzl6bS00LjcwNyAxLjk1bC0uOTgyLjk4Mkw1LjA5IDYuMDcybC45ODItLjk4Mi0xLjQ3My0xLjQ3M3ptMTAuODAyIDBMMTMuOTI3IDUuMDlsLjk4Mi45ODIgMS40NzMtMS40NzMtLjk4Mi0uOTgyek0xMCA1LjEzOWE0Ljg3MiA0Ljg3MiAwIDAwLTQuODYyIDQuODZBNC44NzIgNC44NzIgMCAwMDEwIDE0Ljg2MiA0Ljg3MiA0Ljg3MiAwIDAwMTQuODYgMTAgNC44NzIgNC44NzIgMCAwMDEwIDUuMTM5em0wIDEuMzg5QTMuNDYyIDMuNDYyIDAgMDExMy40NzEgMTBhMy40NjIgMy40NjIgMCAwMS0zLjQ3MyAzLjQ3MkEzLjQ2MiAzLjQ2MiAwIDAxNi41MjcgMTAgMy40NjIgMy40NjIgMCAwMTEwIDYuNTI4ek0xLjY2NSA5LjMwNXYxLjM5aDIuMDgzdi0xLjM5SDEuNjY2em0xNC41ODMgMHYxLjM5aDIuMDg0di0xLjM5aC0yLjA4NHpNNS4wOSAxMy45MjhMMy42MTYgMTUuNGwuOTgyLjk4MiAxLjQ3My0xLjQ3My0uOTgyLS45ODJ6bTkuODIgMGwtLjk4Mi45ODIgMS40NzMgMS40NzMuOTgyLS45ODItMS40NzMtMS40NzN6TTkuMzA1IDE2LjI1djIuMDgzaDEuMzg5VjE2LjI1aC0xLjM5eiIgLz4KPC9zdmc+");
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  -o-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.slider .circle::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: inherit;
+  -webkit-transition: all 500ms;
+  -o-transition: all 500ms;
+  transition: all 500ms;
+  opacity: 0;
+}
+
+/* actions */
+
+.ui-switch input:checked + .slider .circle {
+  left: calc(100% - var(--circle-diameter));
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTQuMiAyLjVsLS43IDEuOC0xLjguNyAxLjguNy43IDEuOC42LTEuOEw2LjcgNWwtMS45LS43LS42LTEuOHptMTUgOC4zYTYuNyA2LjcgMCAxMS02LjYtNi42IDUuOCA1LjggMCAwMDYuNiA2LjZ6IiAvPgo8L3N2Zz4=");
+}
+
+.ui-switch input:active + .slider .circle::before {
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
+  opacity: 1;
+  width: 0;
+  height: 0;
+}
+/* The toggle ends here */
+
+/* main */
+/* Section 1, likes and dislikes --main */
+main {
+  width: 100vw;
+  background-color: white;
+}
+
+main section.like {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #4fc3f7;
+  background-color: transparent;
+}
+main section.like {
+  background-image: radial-gradient(rgba(51, 51, 51, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+main section.like .background {
+  height: 100%;
+  width: 100%;
+  background-image: url(Rafay_with_baas.png);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: clamp(400px, 110vh, 1000px);
+  position: absolute;
+  z-index: 1;
+  left: -1%;
+  bottom: 0%;
+}
+main section.like h1,
+main section.like h3,
+main section.like p {
+  font-family: "Nunito", sans-serif;
+}
+main section.like h1 {
+  font-size: 2.5rem;
+}
+section.like .cards1 div {
+  transform: translateX(-400px);
+  opacity: 0;
+}
+
+section.like .cards2 div {
+  transform: translateY(400px);
+  opacity: 0;
+}
+
+section.like .cards1,
+section.like .cards2 {
+  background-color: transparent;
+  width: 80%;
+  margin: 3vh 5vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: black;
+  position: relative;
+  z-index: 4;
+  overflow: hidden;
+}
+
+section.like .cards1 div,
+section.like .cards2 div {
+  box-shadow: 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: 16vw;
+  height: 43vh;
+  font-size: clamp(0.5rem, 1vw, 1vw);
+  min-width: 120px;
+  min-height: 180px;
+  border-radius: 20px;
+  padding: 10px 5px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 1vw;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  border: 1px solid black;
+}
+
+section.like .cards1 div:hover,
+section.like .cards2 div:hover {
+  box-shadow: 4px 15px 6px rgba(0, 0, 0, 0.8);
+}
+
+section.like .cards1 div img,
+section.like .cards2 div img {
+  width: 15vw;
+  height: 65%;
+  min-height: 40%;
+  min-width: 90%;
+  /* height: 200px; */
+}
+
+/* Section 2, routine --main*/
+
+section.routine {
+  width: 100%;
+  height: 100vh;
+
+  background-color: #d5e8d4;
+  background-image: radial-gradient(rgba(51, 51, 51, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--Charcol);
+  position: relative;
+  padding: clamp(20px, 5vh, 5vh);
+}
+section.routine h1 {
+  font-size: clamp(2rem, 5vw, 5vw);
+  overflow: hidden;
+}
+
+section.routine h1 span {
+  font-size: clamp(2rem, 5vw, 5vw);
+  font-family: "Nunito", sans-serif;
+  display: inline-block;
+  margin-top: 50px;
+  opacity: 1;
+}
+
+section.routine .Pani {
+  display: flex;
+  font-family: "Nunito", sans-serif;
+  align-items: center;
+  font-size: clamp(5rem, 18vw, 18vw);
+  width: 400vw;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+section.routine .image {
+  height: 15vw;
+  width: 15vw;
+  min-height: 180px;
+  min-width: 180px;
+  background-color: yellow;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-top: 1rem;
+}
+section.routine .image img {
+  height: 200px;
+  width: 150px;
+  transform: scale(4);
+  transition: all 0.3s;
+}
+section.routine .image img:hover {
+  transform: scale(5);
+}
+section.routine .wrapper {
+  display: flex;
+}
+
+/* Section 2, facts --main*/
+
+section.facts {
+  background-color: white;
+  background-image: radial-gradient(rgba(51, 51, 51, 0.4) 1px, transparent 1px);
+  background-size: 20px 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--Charcol);
+  position: relative;
+}
+
+section.facts .guitar1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60vw;
+  overflow-x: hidden;
+}
+section.facts .guitar1 svg {
+  width: 900px;
+}
+
+section.facts .guitar2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  overflow-x: hidden;
+}
+section.facts .guitar2 svg {
+  width: 900px;
+}
+section.facts h1,
+section.facts p,
+section.facts button {
+  font-family: "Nunito", sans-serif;
+}
+
+section.facts .facts_container {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  text-align: center;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+section.facts .facts_container h1 {
+  color: #4fc3f7;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+section.facts .facts_container p {
+  font-size: 1.2rem;
+  color: #333;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+/* This is for the button */
+section.facts button.btn {
+  padding: 1.1em 2em;
+  background: none;
+  border: 2px solid #fff;
+  font-size: 15px;
+  color: #131313;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  border-radius: 12px;
+  background-color: #ecd448;
+  font-weight: bolder;
+  box-shadow: 0 2px 0 2px #000;
+}
+section.facts button.btn:before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 120%;
+  background-color: #ff6700;
+  top: 50%;
+  transform: skewX(30deg) translate(-150%, -50%);
+  transition: all 0.5s;
+}
+section.facts button.btn:hover {
+  background-color: #4cc9f0;
+  color: #fff;
+  box-shadow: 0 2px 0 2px #0d3b66;
+}
+section.facts button.btn:hover::before {
+  transform: skewX(30deg) translate(250%, -50%);
+  transition-delay: 0.1s;
+}
+section.facts button.btn:active {
+  transform: scale(0.9);
+}
+/* The button for the fun fact ends here */
+/* section 3, game --main */
+
+section.game {
+  width: 100vw;
+  height: 80vh;
+  min-height: 600px;
+  background-color: #e6f7ff;
+  background-image: radial-gradient(rgba(51, 51, 51, 0.4) 1px, transparent 1px);
+  background-size: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2rem clamp(1.5rem, 8rem, 8vw);
+  margin: 1rem 0;
+}
+section.game .game_card {
+  background-color: White;
+  height: 80%;
+  width: 100%;
+  min-height: 350px;
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  /* border: 2px solid black; */
+  background-image: url("background.jpg");
+  background-position: bottom center;
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  position: relative;
+}
+section.game h1,
+section.game .game_card h2,
+section.game .game_card p,
+section.game .game_card button {
+  font-family: "Nunito", sans-serif;
+}
+section.game h1 {
+  font-size: clamp(2rem, 5vw, 5vw);
+  color: var(--Charcol);
+}
+section.game .game_card h2 {
+  color: var(--Charcol);
+  font-size: clamp(1rem, 2.5vw, 2.5vw);
+  margin-bottom: 2rem;
+  margin-left: clamp(0.5rem, 1.5vw, 1.5vw);
+}
+
+section.game .game_card p {
+  color: var(--Charcol);
+  font-size: clamp(0.9rem, 1.5vw, 1.5vw);
+  margin: clamp(0.5rem, 1.5vw, 1.5vw);
+}
+
+section.game .game_card .input {
+  display: flex;
+  flex-wrap: wrap;
+  margin: clamp(0.5rem, 1.5vw, 1.5vw);
+}
+
+/* This is for the Submit Buttom */
+.button {
+  --stone-50: #fafaf9;
+  --stone-800: #292524;
+  --yellow-400: #facc15;
+  margin: min(3vw, 1rem);
+  font-size: (1vw, 0.8rem);
+  cursor: pointer;
+  position: relative;
+  font-family: "Rubik", sans-serif;
+  font-weight: bold;
+  line-height: 1;
+  padding: 1px;
+  transform: translate(-4px, -4px);
+  outline: 2px solid transparent;
+  outline-offset: 5px;
+  border-radius: 9999px;
+  background-color: var(--stone-800);
+  color: var(--stone-800);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  text-align: center;
+  box-shadow: 0.5px 0.5px 0 0 var(--stone-800), 1px 1px 0 0 var(--stone-800),
+    1.5px 1.5px 0 0 var(--stone-800), 2px 2px 0 0 var(--stone-800),
+    2.5px 2.5px 0 0 var(--stone-800), 3px 3px 0 0 var(--stone-800),
+    0 0 0 2px var(--stone-50), 0.5px 0.5px 0 2px var(--stone-50),
+    1px 1px 0 2px var(--stone-50), 1.5px 1.5px 0 2px var(--stone-50),
+    2px 2px 0 2px var(--stone-50), 2.5px 2.5px 0 2px var(--stone-50),
+    3px 3px 0 2px var(--stone-50), 3.5px 3.5px 0 2px var(--stone-50),
+    4px 4px 0 2px var(--stone-50);
+
+  &:hover {
+    transform: translate(0, 0);
+    box-shadow: 0 0 0 2px var(--stone-50);
+  }
+
+  &:active,
+  &:focus-visible {
+    outline-color: var(--yellow-400);
+  }
+
+  &:focus-visible {
+    outline-style: dashed;
+  }
+
+  & > div {
+    position: relative;
+    pointer-events: none;
+    background-color: var(--yellow-400);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 9999px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      opacity: 0.5;
+      background-image: radial-gradient(
+          rgb(255 255 255 / 80%) 20%,
+          transparent 20%
+        ),
+        radial-gradient(rgb(255 255 255 / 100%) 20%, transparent 20%);
+      background-position: 0 0, 4px 4px;
+      background-size: 8px 8px;
+      mix-blend-mode: hard-light;
+      animation: dots 0.5s infinite linear;
+    }
+
+    & > span {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.25rem;
+      gap: 0.25rem;
+      filter: drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.25));
+
+      &:active {
+        transform: translateY(2px);
+      }
+    }
+  }
+}
+
+@keyframes dots {
+  0% {
+    background-position: 0 0, 4px 4px;
+  }
+  100% {
+    background-position: 8px 0, 12px 4px;
+  }
+}
+/* The Submit Button ends here */
+/* This is for the input number */
+.uiverse-pixel-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  font-family: "Courier New", monospace;
+  color: #fff;
+  font-size: 1em;
+  width: clamp(9em, 18vw, 18vw);
+  margin: min(3vw, 1rem);
+  margin-left: 0;
+}
+
+.uiverse-pixel-input {
+  appearance: none;
+  border: none;
+  padding: 0.6em;
+  font-size: 1em;
+  font-family: "Courier New", monospace;
+  color: #fff;
+  background: #ff6b35;
+  image-rendering: pixelated;
+  box-shadow: 0 0 0 0.15em #000, 0 0 0 0.3em #fff, 0 0 0 0.45em #000,
+    0 0.3em 0 0 #d1451e, 0 0.3em 0 0.15em #000;
+  outline: none;
+  transition: all 0.15s steps(1);
+  text-shadow: 1px 1px #000;
+}
+
+.uiverse-pixel-input::placeholder {
+  color: #fff;
+  opacity: 0.6;
+}
+
+.uiverse-pixel-input:focus {
+  background: #ff8c42;
+  box-shadow: 0 0 0 0.15em #000, 0 0 0 0.3em #fff, 0 0 0 0.45em #000,
+    0 0.2em 0 0 #00cc66, 0 0.2em 0 0.15em #000;
+}
+
+.uiverse-pixel-input:hover {
+  animation: uiverse-glitch-input 0.3s steps(2) infinite;
+}
+
+/* Glitch animation */
+@keyframes uiverse-glitch-input {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-1px, 1px);
+  }
+  50% {
+    transform: translate(1px, -1px);
+  }
+  75% {
+    transform: translate(-1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+/* The input number for the game ends here */
+/* section 4, Send Message --main */
+section.message {
+  padding: clamp(0.7rem, 2.5vw, 2.5rem) clamp(1rem, 5vw, 5vw);
+  background-image: radial-gradient(rgba(51, 51, 51, 0.4) 1px, transparent 1px);
+  background-size: 20px 20px;
+  margin: 1rem;
+  position: relative;
+}
+section.message h1 {
+  font-size: clamp(2rem, 4vw, 4vw);
+  color: var(--Charcol);
+  font-family: "Nunito", sans-serif;
+}
+/* This is for the form */
+section.message .form {
+  --input-focus: #2d8cf0;
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: beige;
+  --main-color: black;
+  padding: 20px;
+  background: lightblue;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+}
+
+section.message .title {
+  color: var(--font-color);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 3vw, 3vw);
+  font-family: "Nunito", sans-serif;
+
+  margin-bottom: 25px;
+}
+
+section.message .title span {
+  color: var(--font-color-sub);
+  font-weight: 500;
+  font-family: "Nunito", sans-serif;
+
+  font-size: clamp(17px, 1.5vw, 1.5vw);
+}
+
+section.message .input {
+  width: 30%;
+  min-width: 10rem;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  padding: 5px 10px;
+  outline: none;
+}
+
+section.message textarea.input {
+  resize: none;
+  width: 30%;
+  min-width: 10rem;
+  height: 20%;
+  min-height: 4rem;
+}
+
+section.message .input::placeholder {
+  color: var(--font-color-sub);
+  opacity: 0.8;
+}
+
+section.message .input:focus {
+  border: 2px solid var(--input-focus);
+}
+
+section.message .login-with {
+  display: flex;
+  gap: 20px;
+}
+
+section.message .button-log {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  color: var(--font-color);
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.message .icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--main-color);
+}
+
+section.message .button-log:active,
+section.message .button-confirm:active {
+  box-shadow: 0px 0px var(--main-color);
+  transform: translate(3px, 3px);
+}
+
+section.message .button-confirm {
+  margin: 50px auto 0 auto;
+  width: 180px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+/* The form ends here */
+/* This is for the animation in the form */
+section.message .msg_sent {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateX(-200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+section.message .msg_sent ion-icon {
+  font-size: 3rem;
+}
+section.message .msg_sent p {
+  font-family: "Nunito", sans-serif;
+}
+/* The main ends here */
+
+/* Footer */
+footer {
+  background: #c5eafa; /* a very light blue that fits your site */
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 3rem;
+  border-top: 2px solid #e0f0f9;
+}
+footer p {
+  font-family: "Nunito", sans-serif;
+}
+/* This is for the site Preloader */
+.loader {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.truckWrapper {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: hidden;
+}
+/* truck upper body */
+.truckBody {
+  width: 130px;
+  height: fit-content;
+  margin-bottom: 6px;
+  animation: motion 1s linear infinite;
+}
+/* truck suspension animation*/
+@keyframes motion {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* truck's tires */
+.truckTires {
+  width: 130px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px 0px 15px;
+  position: absolute;
+  bottom: 0;
+}
+.truckTires svg {
+  width: 24px;
+}
+
+.road {
+  width: 100%;
+  height: 1.5px;
+  background-color: #282828;
+  position: relative;
+  bottom: 0;
+  align-self: flex-end;
+  border-radius: 3px;
+}
+.road::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  background-color: #282828;
+  right: -50%;
+  border-radius: 3px;
+  animation: roadAnimation 1.4s linear infinite;
+  border-left: 10px solid white;
+}
+.road::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  background-color: #282828;
+  right: -65%;
+  border-radius: 3px;
+  animation: roadAnimation 1.4s linear infinite;
+  border-left: 4px solid white;
+}
+
+.lampPost {
+  position: absolute;
+  bottom: 0;
+  right: -90%;
+  height: 90px;
+  animation: roadAnimation 1.4s linear infinite;
+}
+
+@keyframes roadAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-350px);
+  }
+}
+
+.loader_container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+  background-color: var(--background);
+}
+
+.loader_container.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.page_content {
+  opacity: 0;
+  transform: translate3d(0, -1rem, 0);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+.page_content.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+/* The site preloader ends here */
+
+/* CSS MEDIA QUERIES */
+@media screen and (max-width: 600px) {
+  section.like .cards1 div,
+  section.like .cards2 div {
+    height: 30px;
+  }
+  .routine .image {
+    top: 40%;
+    height: 250px;
+    width: 250px;
+  }
+  body {
+    /* background-color: blue; */
+  }
+}
