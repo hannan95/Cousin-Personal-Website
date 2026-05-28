@@ -227,7 +227,6 @@ main section.like {
 main section.like .background {
   height: 100%;
   width: 100%;
-  background-image: url(Rafay_with_baas.png);
   background-repeat: no-repeat;
   background-position: top left;
   background-size: clamp(400px, 110vh, 1000px);
