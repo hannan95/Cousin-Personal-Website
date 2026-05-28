@@ -1,4 +1,4 @@
-#Personal Website Project
+# Personal Website Project
 
 An interactive and responsive personal website built using HTML, CSS, JavaScript, and GSAP. The project features engaging animations, interactive UI elements, and a browser-based mini game to create a fun user experience.
 
